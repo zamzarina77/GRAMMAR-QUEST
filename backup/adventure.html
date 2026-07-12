@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grammar Quest Adventure</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/game.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+BACKGROUND
+=========================== -->
+
+<div class="background">
+
+    <img
+        src="images/kingdoms/forest.png"
+        class="background-image"
+        alt="Whispering Forest">
+
+</div>
+
+<!-- ===========================
+GAME SCREEN
+=========================== -->
+
+<div class="game-screen">
+
+    <!-- LEFT PANEL -->
+
+    <aside class="left-panel">
+
+        <img
+            src="images/characters/professor-hoot.png"
+            class="hoot"
+            alt="Professor Hoot">
+
+        <div class="speech-box">
+
+            <h2>Professor Hoot</h2>
+
+            <p id="hoot-message">
+
+                Welcome, Adventurer!
+
+            </p>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN PANEL -->
+
+    <main class="main-panel">
+
+        <h1>
+
+            🌳 Whispering Forest
+
+        </h1>
+
+        <h3>
+
+            Subject–Verb Agreement
+
+        </h3>
+
+        <!-- Progress -->
+
+        <div class="challenge-box">
+
+            Challenge
+
+            <span id="current-question">
+
+                1
+
+            </span>
+
+            of
+
+            <span>
+
+                10
+
+            </span>
+
+        </div>
+
+        <!-- Progress Bar -->
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill">
+
+            </div>
+
+        </div>
+
+        <!-- Question -->
+
+        <div class="question-card">
+
+            <h2 id="question">
+
+                Loading...
+
+            </h2>
+
+        </div>
+
+        <!-- Answers -->
+
+        <div
+            id="answers"
+            class="answers">
+
+        </div>
+
+        <!-- Buttons -->
+
+        <button
+            id="submit-btn">
+
+            Submit
+
+        </button>
+
+    </main>
+
+</div>
+
+<script src="questions/forest.js"></script>
+
+<script src="js/game.js"></script>
+
+</body>
+
+</html>

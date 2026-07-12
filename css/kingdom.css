@@ -1,0 +1,195 @@
+/* ==========================================
+   GRAMMAR QUEST KINGDOM
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at 20% 20%,#34245f 0%,transparent 35%),
+    radial-gradient(circle at 70% 80%,#5a2d69 0%,transparent 30%),
+    linear-gradient(#081529,#0d203b);
+
+    color:white;
+}
+
+/* ==========================================
+      STARS
+========================================== */
+
+.background-stars{
+
+    position:fixed;
+    inset:0;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:65px 65px;
+
+    opacity:.35;
+
+}
+
+/* ==========================================
+      MIST
+========================================== */
+
+.background-mist{
+
+    position:fixed;
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:35%;
+
+    background:
+    linear-gradient(to top,
+    rgba(255,255,255,.08),
+    transparent);
+
+    filter:blur(18px);
+
+}
+
+/* ==========================================
+      MAIN CONTAINER
+========================================== */
+
+.game-container{
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* ==========================================
+      HEADER
+========================================== */
+
+.top-header{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    padding:35px 60px;
+
+}
+
+/* ==========================================
+      LEFT
+========================================== */
+
+.header-left{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+}
+
+#header-hoot{
+
+    width:180px;
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+/* ==========================================
+      CRYSTALS
+========================================== */
+
+.crystal-box{
+
+    margin-top:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:18px 25px;
+
+    border-radius:20px;
+
+    border:2px solid rgba(255,215,0,.3);
+
+    background:rgba(8,18,40,.75);
+
+}
+
+.crystal-box span{
+
+    font-size:34px;
+
+}
+
+.crystal-box small{
+
+    color:#ddd;
+
+}
+
+.crystal-box h3{
+
+    font-size:30px;
+
+}
+
+/* ==========================================
+      CENTRE
+========================================== */
+
+.header-centre{
+
+    text-align:center;
+
+    margin-top:10px;
+
+}
+
+.header-centre h1{
+
+    font-family:'Cinzel',serif;
+
+    font-size:76px;
+
+    color:#FFD44A;
+
+    text-shadow:
+    0 0 20px gold,
+    0 0 40px rgba(255,215,0,.4);
+
+}
+
+.header-centre p{
+
+    margin-top:18px;
+
+    font-size:24px;
+
+    color:#ddd;
+
+}

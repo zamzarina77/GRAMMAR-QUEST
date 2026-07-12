@@ -1,0 +1,47 @@
+/* Grammar Quest v2 - game.css */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;font-family:Poppins,sans-serif;color:#fff;background:#071321}
+.hidden{display:none}
+
+/* Background */
+.background{position:fixed;inset:0;overflow:hidden;z-index:-10}
+.stars{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.forest{position:absolute;left:0;bottom:0;width:100%;pointer-events:none}
+.background::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(5,10,30,.25),rgba(5,10,30,.65))}
+
+/* Mission */
+#mission-screen{width:100vw;height:100vh;display:flex;justify-content:center;align-items:center;padding:30px}
+.mission-container{width:min(1500px,95vw)}
+.logo{display:block;width:420px;max-width:80%;margin:0 auto 20px}
+.mission-container>h1{text-align:center;font:700 56px Cinzel,serif;color:#ffd54a}
+.mission-container>h2{text-align:center;font-size:28px;color:#bdf8d6;margin:8px 0 40px}
+.mission-layout{display:grid;grid-template-columns:420px 1fr;gap:40px;align-items:center}
+.hoot-side{display:flex;justify-content:center}
+.hoot{width:360px;max-width:100%;filter:drop-shadow(0 12px 24px rgba(0,0,0,.5));animation:float 3s ease-in-out infinite}
+.mission-scroll{position:relative;background:rgba(8,18,40,.82);backdrop-filter:blur(10px);border:2px solid rgba(255,215,0,.3);border-radius:24px;padding:42px}
+.crystal{position:absolute;top:-38px;right:28px;width:80px}
+.mission-scroll h3{font-size:40px;color:#ffd54a;margin-bottom:18px}
+.mission-scroll p{font-size:22px;line-height:1.7;margin-bottom:14px}
+#begin-btn{margin-top:16px;padding:16px 42px;border:0;border-radius:50px;background:#ffd54a;color:#000;font-size:22px;font-weight:700;cursor:pointer}
+#begin-btn:hover{transform:scale(1.05)}
+
+/* Game */
+#game-screen{width:100vw;height:100vh;padding:20px 50px}
+.game-header,.title-section,.challenge-box,.question-card,.answers,.game-footer{max-width:1100px;margin-inline:auto}
+.game-header{display:flex;justify-content:space-between;align-items:center}
+.header-left{display:flex;gap:15px;align-items:center}
+.header-hoot{width:70px}
+.crystal-energy{display:flex;gap:12px;align-items:center;background:rgba(8,18,40,.8);padding:10px 18px;border-radius:16px}
+.crystal-energy img{width:40px}
+.title-section{text-align:center;margin:18px auto}
+.title-section h1{font:700 46px Cinzel,serif;color:#ffd54a}
+.challenge-box{text-align:center;background:rgba(255,215,0,.18);padding:12px;border-radius:30px;width:260px;margin-bottom:20px}
+.question-card h2{background:rgba(8,18,40,.85);padding:28px;border-radius:20px;min-height:120px;display:flex;align-items:center;justify-content:center;text-align:center}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+.answer-btn{padding:18px;border-radius:16px;border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer}
+.answer-btn:hover{background:#ffd54a;color:#000}
+.game-footer{margin-top:24px}
+.progress-bar{height:16px;background:rgba(255,255,255,.12);border-radius:20px;overflow:hidden}
+.progress-fill{height:100%;width:16.67%;background:linear-gradient(90deg,#00d084,#8cff9a)}
+
+@keyframes float{50%{transform:translateY(-10px)}}

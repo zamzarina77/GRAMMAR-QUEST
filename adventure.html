@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Quest | Whispering Forest</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/game.css">
+</head>
+
+<body>
+
+<div class="background">
+    <img src="images/backgrounds/forest.png" class="stars" alt="Starry Sky">
+    <img src="images/backgrounds/whispering-forest.png" class="forest" alt="Whispering Forest">
+</div>
+
+<section id="mission-screen">
+
+<div class="mission-container">
+
+<img src="images/backgrounds/grammar-quest-logo.png" class="logo" alt="Grammar Quest Logo">
+
+<h1>Whispering Forest</h1>
+<h2>Restore the Agreement Crystal</h2>
+
+<div class="mission-layout">
+
+<div class="hoot-side">
+<img src="images/characters/professor-hoot.png"
+class="hoot"
+alt="Professor Hoot">
+</div>
+
+<div class="mission-scroll">
+
+<img src="images/backgrounds/crystal.png"
+class="crystal"
+alt="Crystal">
+
+<h3>Welcome, Adventurer!</h3>
+
+<p>The Agreement Crystal has lost its magical power.</p>
+
+<p>Complete six grammar challenges to restore the Whispering Forest.</p>
+
+<button id="begin-btn">Begin Adventure</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<main id="game-screen" class="hidden">
+
+<header class="game-header">
+
+<div class="header-left">
+
+<img src="images/characters/professor-hoot.png"
+class="header-hoot"
+alt="Professor Hoot">
+
+<div>
+<h3>Professor Hoot</h3>
+<p id="hoot-message">Restore the crystal by answering correctly!</p>
+</div>
+
+</div>
+
+<div class="header-right">
+
+<div class="crystal-energy">
+
+<img src="images/backgrounds/crystal.png" alt="Crystal">
+
+<div>
+<span>Crystal Energy</span>
+<strong id="crystal-count">0 / 6</strong>
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="title-section">
+<h1>Whispering Forest</h1>
+<h2>Subject–Verb Agreement</h2>
+</section>
+
+<div class="challenge-box">
+Challenge
+<span id="current-question">1</span>
+of 6
+</div>
+
+<section class="question-card">
+<h2 id="question">Loading...</h2>
+</section>
+
+<section class="answers" id="answers"></section>
+
+<footer class="game-footer">
+
+<div class="progress-top">
+<span>Your Progress</span>
+<span id="progress-number">1 / 6</span>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+</footer>
+
+</main>
+
+<script src="questions/forest.js"></script>
+<script src="js/game.js"></script>
+
+</body>
+</html>
