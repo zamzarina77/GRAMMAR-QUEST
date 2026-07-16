@@ -1,0 +1,1324 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background: #060812;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    background: url("../images/backgrounds/whispering-forest.webp") center center/cover no-repeat;
+    filter: saturate(1.12) contrast(1.04);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background:
+        radial-gradient(circle at 18% 12%, rgba(255, 224, 125, .34), transparent 18%),
+        radial-gradient(circle at 82% 8%, rgba(255, 224, 125, .24), transparent 18%),
+        radial-gradient(circle at 50% 48%, rgba(51, 141, 255, .18), transparent 34%),
+        linear-gradient(180deg, rgba(2, 6, 17, .26), rgba(0, 0, 0, .8));
+}
+
+.certificate-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255, 248, 194, .86) 0 1px, transparent 1.8px),
+        radial-gradient(circle, rgba(85, 187, 255, .45) 0 1px, transparent 1.7px);
+    background-position: 0 0, 42px 30px;
+    background-size: 118px 118px, 168px 168px;
+    opacity: .36;
+}
+
+.certificate-page {
+    position: relative;
+    width: min(1180px, 100%);
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: 16px 18px 34px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 14px;
+}
+
+.name-panel,
+.page-actions {
+    position: relative;
+    z-index: 8;
+    width: min(850px, 100%);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.name-panel {
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 220, 116, .82);
+    border-radius: 12px;
+    background: rgba(7, 14, 30, .9);
+    box-shadow:
+        inset 0 0 18px rgba(69, 142, 255, .18),
+        0 12px 34px rgba(0, 0, 0, .36);
+}
+
+.name-panel label {
+    color: #ffd86c;
+    font-family: "Cinzel", serif;
+    font-size: .86rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.name-controls {
+    display: flex;
+    gap: 12px;
+    width: min(620px, 100%);
+}
+
+.name-controls input {
+    width: 100%;
+    min-height: 40px;
+    padding: 0 15px;
+    border: 1px solid rgba(166, 103, 21, .58);
+    border-radius: 8px;
+    background: #fff8df;
+    color: #182018;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    outline-color: #c88614;
+}
+
+.name-controls button,
+.page-actions a,
+.page-actions button {
+    min-height: 40px;
+    padding: 0 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffe38b;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #fff1a6 0%, #dfa02b 58%, #8a4c07 100%);
+    color: #201200;
+    font-family: "Cinzel", serif;
+    font-size: .8rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .54),
+        0 4px 0 #522900,
+        0 0 20px rgba(255, 207, 88, .2);
+    cursor: pointer;
+}
+
+.page-actions button.is-playing {
+    background: linear-gradient(180deg, #fff8c8 0%, #f2c75c 48%, #935a0c 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .6),
+        0 4px 0 #522900,
+        0 0 26px rgba(255, 222, 112, .45);
+}
+
+.certificate {
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    width: min(880px, calc(100vw - 36px));
+    aspect-ratio: 2480 / 3508;
+    padding: 7px;
+    border: 1px solid #d7a13a;
+    border-radius: 4px;
+    background:
+        linear-gradient(90deg, #071426 0 6px, #d7a13a 6px 8px, transparent 8px calc(100% - 8px), #d7a13a calc(100% - 8px) calc(100% - 6px), #071426 calc(100% - 6px)),
+        linear-gradient(180deg, #071426 0 6px, #d7a13a 6px 8px, transparent 8px calc(100% - 8px), #d7a13a calc(100% - 8px) calc(100% - 6px), #071426 calc(100% - 6px));
+    box-shadow:
+        0 26px 70px rgba(0, 0, 0, .68),
+        0 0 38px rgba(255, 213, 98, .22);
+}
+
+.certificate::before,
+.certificate::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    z-index: 4;
+    width: 92px;
+    height: 18px;
+    transform: translateX(-50%);
+    background:
+        radial-gradient(circle at 50% 50%, #d7a13a 0 3px, transparent 4px),
+        linear-gradient(90deg, transparent, #d7a13a 22%, #f6d47a 50%, #d7a13a 78%, transparent);
+    clip-path: polygon(0 50%, 38% 50%, 50% 0, 62% 50%, 100% 50%, 64% 64%, 50% 100%, 36% 64%);
+    pointer-events: none;
+}
+
+.certificate::before {
+    top: 8px;
+}
+
+.certificate::after {
+    bottom: 8px;
+}
+
+.certificate-border {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 36px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #182318;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(8, 16, 18, .42), rgba(87, 70, 33, .08) 14%, rgba(255, 239, 198, .54) 25%, rgba(255, 247, 219, .78) 50%, rgba(255, 239, 198, .54) 75%, rgba(87, 70, 33, .08) 86%, rgba(8, 16, 18, .42)),
+        radial-gradient(ellipse at 50% 18%, rgba(255, 250, 225, .82), transparent 42%),
+        radial-gradient(ellipse at 50% 48%, rgba(255, 244, 209, .72), transparent 45%),
+        radial-gradient(circle at 50% 2%, rgba(255, 238, 174, .44), transparent 22%),
+        url("../images/backgrounds/certificate-castle-beige.webp") center center/cover no-repeat,
+        linear-gradient(135deg, #d9b568, #fff4cc 18%, #f5e2ae 56%, #d6aa58);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 244, 189, .8),
+        inset 0 0 0 4px #071426,
+        inset 0 0 0 6px #d7a13a,
+        inset 0 0 0 8px #071426,
+        inset 0 0 0 10px rgba(235, 190, 86, .78),
+        inset 0 0 74px rgba(106, 67, 18, .16);
+}
+
+.certificate-border::before,
+.certificate-border::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.certificate-border::before {
+    inset: 18px;
+    border: 1px solid rgba(171, 112, 24, .5);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 249, 218, .52),
+        inset 0 0 26px rgba(255, 218, 116, .16);
+}
+
+.certificate-border::after {
+    left: 50%;
+    bottom: -7%;
+    width: 120%;
+    height: 43%;
+    transform: translateX(-50%);
+    background:
+        linear-gradient(180deg, rgba(255, 250, 223, 0), rgba(255, 241, 203, .42) 44%, rgba(244, 224, 173, .34));
+}
+
+.corner {
+    position: absolute;
+    z-index: 3;
+    width: 64px;
+    height: 64px;
+    border-color: #d7a13a;
+    pointer-events: none;
+}
+
+.corner::before,
+.corner::after {
+    content: "";
+    position: absolute;
+    border: 1.5px solid #d7a13a;
+    border-radius: 50%;
+}
+
+.corner::before {
+    width: 34px;
+    height: 34px;
+}
+
+.corner::after {
+    width: 18px;
+    height: 18px;
+}
+
+.corner-top-left {
+    left: 13px;
+    top: 13px;
+    border-top: 1.5px solid #d7a13a;
+    border-left: 1.5px solid #d7a13a;
+}
+
+.corner-top-left::before {
+    left: 8px;
+    top: 8px;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.corner-top-left::after {
+    left: 36px;
+    top: 9px;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.corner-top-right {
+    right: 13px;
+    top: 13px;
+    border-top: 1.5px solid #d7a13a;
+    border-right: 1.5px solid #d7a13a;
+}
+
+.corner-top-right::before {
+    right: 8px;
+    top: 8px;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.corner-top-right::after {
+    right: 36px;
+    top: 9px;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.corner-bottom-left {
+    left: 13px;
+    bottom: 13px;
+    border-bottom: 1.5px solid #d7a13a;
+    border-left: 1.5px solid #d7a13a;
+}
+
+.corner-bottom-left::before {
+    left: 8px;
+    bottom: 8px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+.corner-bottom-left::after {
+    left: 36px;
+    bottom: 9px;
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+
+.corner-bottom-right {
+    right: 13px;
+    bottom: 13px;
+    border-bottom: 1.5px solid #d7a13a;
+    border-right: 1.5px solid #d7a13a;
+}
+
+.corner-bottom-right::before {
+    right: 8px;
+    bottom: 8px;
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+
+.corner-bottom-right::after {
+    right: 36px;
+    bottom: 9px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
+
+.quest-owl,
+.certificate-logo,
+.crystal-row,
+.certificate-kicker,
+.presented,
+.student-display,
+.achievement,
+.quest-results,
+.signature-row {
+    position: relative;
+    z-index: 2;
+}
+
+.quest-owl {
+    position: absolute;
+    right: 7.2%;
+    top: 5.2%;
+    width: 25%;
+    max-width: 210px;
+    filter:
+        drop-shadow(0 12px 16px rgba(0, 0, 0, .46))
+        drop-shadow(0 0 13px rgba(255, 229, 120, .28));
+    animation: owlFloat 3.8s ease-in-out infinite;
+}
+
+.certificate-logo {
+    width: 31%;
+    min-width: 225px;
+    max-width: 245px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 16px rgba(42, 20, 2, .38));
+}
+
+.crystal-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 15px 0 31px;
+}
+
+.crystal-row img {
+    width: 50px;
+    height: 62px;
+    object-fit: cover;
+    object-position: center 28%;
+    border-radius: 50%;
+}
+
+.crystal-row img:nth-child(1) {
+    filter: drop-shadow(0 0 10px rgba(72, 190, 255, .76));
+}
+
+.crystal-row img:nth-child(2) {
+    filter: drop-shadow(0 0 10px rgba(113, 235, 70, .76));
+}
+
+.crystal-row img:nth-child(3) {
+    filter: drop-shadow(0 0 10px rgba(185, 82, 255, .76));
+}
+
+.certificate-kicker {
+    width: min(790px, 100%);
+    color: #5f3107;
+    font-family: "MedievalSharp", "Cinzel Decorative", "Uncial Antiqua", "Cinzel", serif;
+    font-size: 2.46rem;
+    font-weight: 700;
+    letter-spacing: .055em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow:
+        0 1px 0 #fff2bb,
+        0 2px 0 rgba(61, 28, 2, .32),
+        0 0 2px rgba(48, 20, 0, .35),
+        0 0 12px rgba(255, 208, 82, .22);
+}
+
+.certificate-kicker::after,
+.student-display::after,
+.score-label::after {
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 13px auto 0;
+    background:
+        linear-gradient(90deg, transparent, rgba(128, 82, 12, .78) 18%, rgba(128, 82, 12, .78) 82%, transparent);
+}
+
+.certificate-kicker::after {
+    width: min(590px, 84%);
+}
+
+.presented {
+    margin-top: 16px;
+    color: #30362f;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.36rem;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.student-display {
+    width: min(620px, 94%);
+    margin: 10px auto 0;
+    color: #17351f;
+    font-family: "Cormorant SC", "Cormorant Garamond", "Cinzel", serif;
+    font-size: 2.55rem;
+    font-weight: 600;
+    letter-spacing: .045em;
+    line-height: 1;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.student-display::after {
+    width: min(480px, 84%);
+    margin-top: 15px;
+}
+
+.achievement {
+    width: min(700px, 94%);
+    margin: 14px auto 0;
+    color: #2f1a0a;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.34rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.quest-results {
+    width: 78%;
+    min-width: 640px;
+    margin: 28px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.achievement-summary {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.achievement-badge {
+    position: relative;
+    z-index: 2;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievement-icon {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 11px rgba(42, 25, 4, .27));
+}
+
+.achievement-badge strong {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.score-medallion {
+    width: 130px;
+    aspect-ratio: 270 / 145;
+    margin-top: 7px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: 1px solid #e9bc53;
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(41, 71, 113, .94), rgba(7, 19, 38, .96)),
+        #071426;
+    box-shadow:
+        inset 0 0 12px rgba(73, 173, 255, .16),
+        0 6px 13px rgba(66, 33, 2, .2);
+}
+
+.score-medallion span,
+.signature-row span {
+    color: #72551a;
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.score-medallion span {
+    color: #dce7f2;
+    font-size: .6rem;
+}
+
+.score-medallion strong {
+    margin-top: 1px;
+    color: #ffd86c;
+    font-family: "Cinzel", serif;
+    font-size: 1.95rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.score-grid {
+    width: 100%;
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.score-box {
+    aspect-ratio: 470 / 280;
+    min-height: 0;
+    padding: 15px 14px;
+    display: grid;
+    grid-template-columns: 37% 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    column-gap: 10px;
+    border: 1px solid rgba(177, 113, 21, .62);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(255, 255, 255, .5), transparent 28%),
+        linear-gradient(135deg, rgba(255, 255, 255, .42), rgba(252, 237, 193, .78)),
+        rgba(255, 242, 198, .82);
+    box-shadow:
+        inset 0 0 0 3px rgba(255, 252, 232, .42),
+        inset 0 0 20px rgba(212, 160, 56, .12),
+        0 12px 22px rgba(78, 48, 8, .08);
+}
+
+.score-crystal {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: start;
+    justify-self: start;
+    width: 66px;
+    height: 82px;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 50%;
+    filter: drop-shadow(0 7px 8px rgba(8, 19, 35, .2));
+}
+
+.score-label {
+    grid-column: 2;
+    color: #27170a;
+    font-family: "Cinzel", serif;
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .055em;
+    line-height: 1.18;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.score-label::after {
+    width: 62px;
+    margin-top: 8px;
+}
+
+.score-box strong {
+    grid-column: 2;
+    align-self: end;
+    color: #1f5b3c;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.12rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.signature-row {
+    width: 82%;
+    min-width: 670px;
+    margin-top: 78px;
+    padding-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 38px;
+    align-items: end;
+}
+
+.date-block,
+.signature-block {
+    min-height: 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    border-top: 0;
+}
+
+.date-block::after,
+.signature-block::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(119, 75, 10, .78);
+}
+
+.date-block::after {
+    top: 31px;
+}
+
+.signature-block::after {
+    top: 31px;
+}
+
+.date-block {
+    justify-self: start;
+    width: 190px;
+}
+
+.seal-block {
+    width: 78px;
+    justify-self: center;
+    align-self: center;
+}
+
+.official-seal {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter:
+        drop-shadow(0 2px 3px rgba(16, 9, 2, .45))
+        drop-shadow(0 0 9px rgba(211, 155, 42, .36))
+        drop-shadow(0 7px 10px rgba(75, 43, 7, .22));
+}
+
+.signature-block {
+    position: relative;
+    width: 300px;
+    justify-self: end;
+    align-items: center;
+}
+
+.guardian-signature-image {
+    width: 270px;
+    height: auto;
+    margin-top: -17px;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 1px rgba(80, 43, 5, .1));
+}
+
+.date-block span,
+.signature-block > span {
+    margin-top: 5px;
+}
+
+.date-block span {
+    order: 2;
+    margin-top: 18px;
+    font-size: 1.03rem;
+    letter-spacing: .02em;
+    text-transform: none;
+}
+
+.date-block strong,
+.signature-block strong {
+    margin-top: 7px;
+    color: #172018;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.date-block strong {
+    order: 1;
+    margin-top: 6px;
+    color: #10170f;
+    font-size: 1.18rem;
+    font-weight: 800;
+}
+
+.signature-block strong {
+    margin-top: 9px;
+    font-size: 1.12rem;
+    font-style: normal;
+    text-align: center;
+}
+
+.signature-block > span {
+    font-size: 1.03rem;
+    letter-spacing: .02em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: none;
+}
+
+.signature-block-simple > span {
+    margin-top: 18px;
+}
+
+@keyframes owlFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .certificate-page {
+        display: flex;
+        flex-direction: column;
+        padding: 14px 12px 28px;
+    }
+
+    .certificate {
+        width: min(680px, 100%);
+        aspect-ratio: 2480 / 3508;
+    }
+
+    .certificate-border {
+        padding: 34px 30px 22px;
+    }
+
+    .certificate-logo {
+        min-width: 190px;
+        max-width: 225px;
+    }
+
+    .quest-owl {
+        width: 24%;
+        max-width: 175px;
+    }
+
+    .certificate-kicker {
+        font-size: 2.22rem;
+    }
+
+    .student-display {
+        font-size: 2.18rem;
+    }
+
+    .quest-results {
+        width: 84%;
+        min-width: 0;
+    }
+
+    .achievement-badge {
+        width: 160px;
+    }
+
+    .score-medallion {
+        width: 118px;
+    }
+
+    .signature-row {
+        width: 84%;
+        margin-top: 66px;
+        min-width: 0;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    body {
+        overflow: auto;
+    }
+
+    .name-panel,
+    .name-controls,
+    .page-actions {
+        flex-direction: column;
+    }
+
+    .certificate-page {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding: 10px 8px 18px;
+        gap: 10px;
+        overflow-x: hidden;
+    }
+
+    .name-panel {
+        padding: 8px 10px;
+    }
+
+    .name-controls button,
+    .page-actions a,
+    .page-actions button {
+        width: 100%;
+    }
+
+    .certificate {
+        width: min(280px, calc(100vw - 48px));
+        min-width: 0;
+        aspect-ratio: 2480 / 3508;
+        padding: 4px;
+    }
+
+    .certificate-border {
+        height: 100%;
+        min-height: 0;
+        padding: 18px 16px 12px;
+        box-shadow:
+            inset 0 0 0 1px rgba(255, 244, 189, .8),
+            inset 0 0 0 2px #071426,
+            inset 0 0 0 3px #d7a13a,
+            inset 0 0 0 4px #071426,
+            inset 0 0 0 5px rgba(235, 190, 86, .78),
+            inset 0 0 36px rgba(106, 67, 18, .13);
+    }
+
+    .certificate-border::before {
+        inset: 8px;
+    }
+
+    .corner {
+        width: 30px;
+        height: 30px;
+    }
+
+    .quest-owl {
+        position: absolute;
+        top: 5.3%;
+        right: 7%;
+        width: 23%;
+        max-width: 92px;
+        margin: 0;
+    }
+
+    .certificate-logo {
+        width: 34%;
+        min-width: 118px;
+        max-width: 138px;
+        margin-top: 0;
+    }
+
+    .crystal-row {
+        gap: 7px;
+        margin: 7px 0 13px;
+    }
+
+    .crystal-row img {
+        width: 25px;
+        height: 31px;
+    }
+
+    .certificate-kicker {
+        width: 100%;
+        font-size: clamp(.86rem, 4.55vw, 1.08rem);
+        letter-spacing: .035em;
+        line-height: 1.05;
+        white-space: normal;
+    }
+
+    .certificate-kicker::after {
+        width: 72%;
+        margin-top: 7px;
+    }
+
+    .presented {
+        margin-top: 8px;
+        font-size: .72rem;
+    }
+
+    .student-display {
+        width: 100%;
+        margin-top: 4px;
+        font-size: 1.18rem;
+        letter-spacing: .055em;
+    }
+
+    .student-display::after {
+        width: 70%;
+        margin-top: 7px;
+    }
+
+    .achievement {
+        width: 94%;
+        margin-top: 7px;
+        font-size: .72rem;
+        line-height: 1.25;
+    }
+
+    .quest-results {
+        width: 100%;
+        min-width: 0;
+        margin-top: 9px;
+    }
+
+    .achievement-badge {
+        width: 76px;
+    }
+
+    .score-medallion {
+        width: 68px;
+        margin-top: 3px;
+        padding: 5px 6px;
+        border-radius: 6px;
+    }
+
+    .score-medallion span {
+        font-size: .32rem;
+    }
+
+    .score-medallion strong {
+        font-size: 1.02rem;
+    }
+
+    .score-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+        gap: 6px;
+        margin-top: 9px;
+    }
+
+    .score-box {
+        min-height: 0;
+        padding: 7px 5px;
+        border-radius: 7px;
+        grid-template-columns: 31px 1fr;
+    }
+
+    .score-crystal {
+        width: 30px;
+        height: 37px;
+    }
+
+    .score-label {
+        font-size: .38rem;
+        letter-spacing: .03em;
+        line-height: 1.08;
+    }
+
+    .score-label::after {
+        width: 28px;
+        margin-top: 4px;
+    }
+
+    .score-box strong {
+        font-size: .88rem;
+    }
+
+    .signature-row {
+        width: 86%;
+        min-width: 0;
+        margin-top: auto;
+        padding-top: 8px;
+        grid-template-columns: 1fr auto 1fr;
+        justify-items: center;
+        gap: 10px;
+        align-items: end;
+    }
+
+    .date-block,
+    .signature-block {
+        width: 100%;
+        min-height: 45px;
+        justify-self: center;
+    }
+
+    .date-block::after,
+    .signature-block::after {
+        top: 15px;
+    }
+
+    .seal-block {
+        width: 34px;
+    }
+
+    .signature-block {
+        margin-top: 0;
+    }
+
+    .guardian-signature-image {
+        width: 108px;
+        margin-top: -7px;
+    }
+
+    .signature-block-simple > span {
+        margin-top: 7px;
+        font-size: .42rem;
+        line-height: 1.15;
+    }
+
+    .date-block span {
+        margin-top: 8px;
+        font-size: .42rem;
+    }
+
+    .date-block strong {
+        margin-top: 2px;
+        font-size: .55rem;
+    }
+}
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    *,
+    *::before,
+    *::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    html,
+    body {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        background: transparent;
+        overflow: hidden;
+    }
+
+    .background,
+    .overlay,
+    .name-panel,
+    .page-actions {
+        display: none !important;
+    }
+
+    .certificate-page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        padding: 0;
+        display: block;
+    }
+
+    .certificate {
+        width: 210mm;
+        height: 297mm;
+        aspect-ratio: auto;
+        margin: 0;
+        padding: 1.86mm;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .certificate-border {
+        height: 293.28mm;
+        min-height: 0;
+        padding: 9.5mm 11mm 7mm;
+        box-shadow:
+            inset 0 0 0 .25mm rgba(255, 244, 189, .8),
+            inset 0 0 0 1.2mm #071426,
+            inset 0 0 0 1.7mm #d7a13a,
+            inset 0 0 0 2.25mm #071426,
+            inset 0 0 0 2.8mm rgba(235, 190, 86, .78),
+            inset 0 0 20mm rgba(106, 67, 18, .16);
+    }
+
+    .certificate-border::before {
+        inset: 4.66mm;
+    }
+
+    .quest-owl {
+        right: 14mm;
+        top: 14mm;
+        width: 49mm;
+        max-width: none;
+    }
+
+    .certificate-logo {
+        width: 60mm;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .crystal-row {
+        gap: 4.2mm;
+        margin: 3.8mm 0 7.8mm;
+    }
+
+    .crystal-row img {
+        width: 12.4mm;
+        height: 15.4mm;
+    }
+
+    .certificate-kicker {
+        width: 188mm;
+        font-size: 11.5mm;
+        letter-spacing: .065em;
+    }
+
+    .certificate-kicker::after {
+        width: 139mm;
+        margin-top: 3.6mm;
+    }
+
+    .presented {
+        margin-top: 4.3mm;
+        font-size: 4.9mm;
+    }
+
+    .student-display {
+        width: 160mm;
+        margin-top: 2.4mm;
+        font-size: 9.1mm;
+        letter-spacing: .045em;
+    }
+
+    .student-display::after {
+        width: 120mm;
+        margin-top: 3.6mm;
+    }
+
+    .achievement {
+        width: 170mm;
+        margin-top: 3.3mm;
+        font-size: 5mm;
+    }
+
+    .quest-results {
+        width: 160mm;
+        margin-top: 7mm;
+    }
+
+    .achievement-badge {
+        width: 44mm;
+    }
+
+    .score-medallion {
+        width: 33mm;
+        margin-top: 1.8mm;
+        padding: 2.2mm 2.6mm;
+        border-radius: 2.12mm;
+    }
+
+    .score-medallion span {
+        font-size: 2.25mm;
+    }
+
+    .score-medallion strong {
+        font-size: 8mm;
+    }
+
+    .score-grid {
+        margin-top: 7mm;
+        gap: 5.3mm;
+    }
+
+    .score-box {
+        padding: 3.8mm;
+        border-radius: 2mm;
+    }
+
+    .score-crystal {
+        width: 14mm;
+        height: 17.4mm;
+    }
+
+    .score-label {
+        font-size: 3.25mm;
+    }
+
+    .score-label::after {
+        width: 15.5mm;
+        margin-top: 2mm;
+    }
+
+    .score-box strong {
+        font-size: 7.4mm;
+    }
+
+    .signature-row {
+        width: 165mm;
+        margin-top: 13mm;
+        padding-top: 3mm;
+        gap: 10mm;
+    }
+
+    .date-block,
+    .signature-block {
+        min-height: 24mm;
+    }
+
+    .date-block::after {
+        top: 8.2mm;
+    }
+
+    .signature-block::after {
+        top: 8.2mm;
+    }
+
+    .date-block {
+        width: 48mm;
+    }
+
+    .seal-block {
+        width: 20mm;
+    }
+
+    .signature-block {
+        width: 76mm;
+    }
+
+    .guardian-signature-image {
+        width: 68.5mm;
+        margin-top: -4.2mm;
+    }
+
+    .signature-block-simple > span {
+        margin-top: 4.6mm;
+    }
+
+    .date-block span,
+    .signature-row span {
+        font-size: 2.9mm;
+    }
+
+    .date-block span {
+        font-size: 3.5mm;
+    }
+
+    .date-block strong,
+    .signature-block strong {
+        font-size: 3.5mm;
+    }
+
+    .date-block strong {
+        color: #10170f;
+        font-size: 4.2mm;
+        font-weight: 800;
+    }
+
+    .signature-block > span {
+        font-size: 3.5mm;
+    }
+}
