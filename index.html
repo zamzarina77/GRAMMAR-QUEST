@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grammar Quest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css?v=8">
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <main class="container">
+        <section class="left-panel" aria-label="Professor Hoot">
+            <img
+                src="images/characters/professor-hoot.webp"
+                alt="Professor Hoot"
+                class="hoot">
+        </section>
+
+        <section class="right-panel" aria-label="Grammar Quest introduction">
+            <img
+                src="images/backgrounds/grammar-quest-logo.webp"
+                alt="Grammar Quest"
+                class="logo">
+
+            <h1 class="hero-title typewriter-title" data-title-typewriter="Welcome, Explorer!">Welcome, Explorer!</h1>
+
+            <div class="intro-copy" aria-live="polite">
+                <p class="typewriter-line" data-typewriter="I am Professor Hoot, Guardian of Grammar Kingdom.">I am Professor Hoot, Guardian of Grammar Kingdom.</p>
+
+                <p class="typewriter-line" data-typewriter="Three Grammar Crystals have lost their magic.">Three Grammar Crystals have lost their magic.</p>
+
+                <p class="typewriter-line" data-typewriter="Restore the Noun, Verb, and Sentence Crystals.">Restore the Noun, Verb, and Sentence Crystals.</p>
+
+                <p class="typewriter-line" data-typewriter="Are you ready?">Are you ready?</p>
+            </div>
+
+            <div class="action-row">
+                <button id="startBtn" type="button">Begin Adventure</button>
+
+                <button id="musicToggle" class="music-toggle" type="button" aria-pressed="false">
+                    Music Off
+                </button>
+
+                <a href="teacher-guide.html" class="guide-link">Teacher Guide</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js?v=7"></script>
+</body>
+
+</html>
